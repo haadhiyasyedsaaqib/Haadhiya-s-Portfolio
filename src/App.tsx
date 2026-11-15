@@ -179,13 +179,17 @@ function VideoSection() {
 }
 
 function ProjectCard({ project }: { project: (typeof portfolio.projects)[number] }) {
-  const available = usePublicFile(project.document, 'application/pdf')
+  const isPresentation = 'format' in project && project.format === 'pptx'
+  const fileType = isPresentation ? 'application/vnd.openxmlformats-officedocument.presentationml.presentation' : 'application/pdf'
+  const previewDocument = 'preview' in project ? project.preview ?? project.document : project.document
+  const available = usePublicFile(project.document, fileType)
+  const previewAvailable = usePublicFile(previewDocument, isPresentation ? 'application/pdf' : fileType)
   return <article className="academic-project-card">
     <div className="academic-project-top"><span className="project-number">{project.number}</span><span className="micro-label">{project.course}</span></div>
     <h3>{project.title}</h3>
-    <p className="project-placeholder">Project details are not in the repository yet. Replace this placeholder with a completed UDST project and a 50–100 word summary.</p>
+    {project.summary ? <p className="project-summary">{project.summary}</p> : <p className="project-placeholder">Add a 50–100 word summary for this completed UDST project.</p>}
     <div className="academic-project-details"><p><b>KEY TAKEAWAYS</b>{project.takeaways || 'Add your confirmed takeaways.'}</p><p><b>SKILLS GAINED</b>{project.skills || 'Add skills you developed.'}</p><p><b>CHALLENGE</b>{project.challenge || 'Describe a real challenge and how you addressed it.'}</p><p><b>DEVELOPMENT</b>{project.development || 'Explain how the project supported your academic or professional growth.'}</p></div>
-    {available ? <div className="project-document"><a href={project.document} target="_blank" rel="noreferrer">OPEN FINAL PROJECT DOCUMENT <ArrowUpRight size={14}/></a><iframe src={project.document} title={`${project.title} final document`}/></div> : <p className="project-document-missing"><FileText size={16}/> Add the final project PDF at <code>public{project.document}</code>.</p>}
+    {available ? <div className="project-document"><a href={project.document} download>{isPresentation ? 'DOWNLOAD POWERPOINT PRESENTATION' : 'DOWNLOAD FINAL PROJECT DOCUMENT'} <Download size={14}/></a>{previewAvailable ? <iframe src={previewDocument} title={`${project.title} document preview`}/> : isPresentation ? <p className="project-preview-note">For an inline preview, also add a PDF export at <code>public{previewDocument}</code>. Visitors can download the PowerPoint above.</p> : <iframe src={project.document} title={`${project.title} final document`}/>}</div> : <p className="project-document-missing"><FileText size={16}/> Add the final {isPresentation ? 'PowerPoint' : 'project PDF'} at <code>public{project.document}</code>.</p>}
   </article>
 }
 
