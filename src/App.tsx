@@ -184,7 +184,8 @@ function ResumePage() {
 
 function VideoSection() {
   return <section className="section video-section" id="video"><div className="section-kicker">05 / MY STORY IN MOTION <span>✳</span></div><div className="section-heading"><div><h2 data-flight-target="video">A little more<br/><em>about my journey.</em></h2></div><p>A short introduction to my studies,<br/>what motivates me, and what I’m learning.</p></div>
-    <div className="presentation-video-frame"><iframe className="presentation-video-embed" src="https://drive.google.com/file/d/1ZKS333DxVc2L1Ws69jMPUYrI84xr1Wpc/preview" title="Haadhiya Syed Akbar video presentation" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen loading="lazy"/></div>
+    <div className="presentation-video-frame"><iframe className="presentation-video-embed" src="https://drive.google.com/file/d/1ZKS333DxVc2L1Ws69jMPUYrI84xr1Wpc/preview" title="Haadhiya Syed Akbar video presentation" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowFullScreen loading="lazy"/></div>
+    <a className="video-open-link" href="https://drive.google.com/file/d/1ZKS333DxVc2L1Ws69jMPUYrI84xr1Wpc/view?usp=sharing" target="_blank" rel="noreferrer">OPEN VIDEO IN GOOGLE DRIVE <ArrowUpRight size={14}/></a>
   </section>
 }
 
