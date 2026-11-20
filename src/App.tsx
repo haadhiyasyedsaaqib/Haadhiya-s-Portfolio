@@ -183,9 +183,8 @@ function ResumePage() {
 }
 
 function VideoSection() {
-  const available = usePublicFile('/video-presentation.mp4', 'video/')
   return <section className="section video-section" id="video"><div className="section-kicker">05 / MY STORY IN MOTION <span>✳</span></div><div className="section-heading"><div><h2 data-flight-target="video">A little more<br/><em>about my journey.</em></h2></div><p>A short introduction to my studies,<br/>what motivates me, and what I’m learning.</p></div>
-    {available ? <video className="presentation-video" controls preload="metadata"><source src="/video-presentation.mp4" type="video/mp4"/>Your browser does not support video playback.</video> : <div className="missing-media-card"><span className="missing-media-play">▶</span><div><strong>Video presentation coming soon</strong><p>Add your 3–5 minute MP4 at <code>public/video-presentation.mp4</code>. Answer: introduce yourself; why UDST; your current program; why you chose it and what interests you; a course challenge and how you overcame it; and the HR trend that interests you most.</p></div></div>}
+    <div className="presentation-video-frame"><iframe className="presentation-video-embed" src="https://drive.google.com/file/d/1ZKS333DxVc2L1Ws69jMPUYrI84xr1Wpc/preview" title="Haadhiya Syed Akbar video presentation" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen loading="lazy"/></div>
   </section>
 }
 

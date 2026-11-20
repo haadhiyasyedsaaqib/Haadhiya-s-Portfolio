@@ -3,7 +3,7 @@ export const portfolio = {
   role: 'Aviation Management Student',
   location: 'Qatar',
   // Replace contact placeholders with Haadhiya's current details before publishing.
-  email: 'haadhiyasyedakbar16@gmail.com',
+  email: 'haadhiyasyed16@gmail.com',
   linkedin: 'https://www.linkedin.com/in/haadhiya-syed-9a09b13a7/',
   intro: 'Exploring the skies, understanding aviation, and shaping the future of global air transport.',
   about: 'I am an Aviation Management student with a growing interest in the systems that connect people and places. I am especially curious about airline and airport operations, aviation safety and security, passenger experience, aviation economics, and the technologies shaping more sustainable flight.',
